@@ -1,0 +1,8 @@
+#!/bin/bash
+#Cuttting off some parts of a video does not require fancy softwares. ffmpeg offers a nice solution:
+
+#Time format is hh:mm:ss.x. The output video will start at 2min22s and end after 10min4s.
+#The -acodec copy and -vcodec copy parameters ensure that the audio and video codec settings used are copied from the input video.
+#If you only want to cut off a part in the beginning, just leave away the -t option.
+
+ffmpeg -ss 00:02:22.0 -t 00:10:04.0 -i input.mp4 -acodec copy -vcodec copy -async 1 output.mp4
